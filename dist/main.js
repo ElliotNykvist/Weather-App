@@ -1,0 +1,1 @@
+(()=>{const a=document.querySelector("img");!async function(){const t=await fetch("api.giphy.com/v1/stickers/trending/translate?api_key=3BhI92YU3HIgZdQ9OADfGzAwRpEZ7LpP&s=sun",{mode:"cors"}),i=await t.json();a.src=i.data.images.original.url}()})();
