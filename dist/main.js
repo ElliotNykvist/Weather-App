@@ -1,1 +1,1 @@
-(()=>{const a=document.querySelector("img");!async function(){const t=await fetch("api.giphy.com/v1/stickers/trending/translate?api_key=3BhI92YU3HIgZdQ9OADfGzAwRpEZ7LpP&s=sun",{mode:"cors"}),i=await t.json();a.src=i.data.images.original.url}()})();
+(()=>{const e=document.getElementById("location-value");document.querySelector(".search-btn").addEventListener("click",(()=>{!async function(){const t=await fetch(`https://api.weatherapi.com/v1/current.json?key=984f37a3d7f842c6ad8131427233110&q=${e.value}`,{mode:"cors"}),c=await t.json();console.log(c)}()}))})();

@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,800&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/f9a3733d1a.js" crossorigin="anonymous"></script>
   <title>Weather</title>
 </head>
@@ -16,7 +16,7 @@
       <div class="location1">
         <div class="logo">Weather-App</div>
         <div class="input">
-          <input type="text" placeholder="Search location..." minlength="1"  maxlength="85" required/>
+          <input id="location-value" type="text" placeholder="Search location..." minlength="1"  maxlength="85" required/>
           <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
         </div>
       </div>
@@ -37,10 +37,10 @@
             <h4 class="weather-temp-type">°C</h4>
           </div>
           <div class="info-div">
-            <p class="fells-like">Feels Like: 28 °C</p>
-            <p>Wind: 1 m/s</p>
-            <p>Humidity: 75 %</p>
-            <p>Chance of Rain: 0 %</p>
+            <p class="feels-like">Feels Like: 28 °C</p>
+            <p class="wind">Wind: 1 m/s</p>
+            <p class="humidity">Humidity: 75 %</p>
+            <p class="rain">Rain: 0 mm</p>
           </div>
         </div>
       </div>
