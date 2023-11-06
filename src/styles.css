@@ -6,8 +6,7 @@ body {
   background: linear-gradient(0deg, rgba(25,30,43,1) 0%, rgba(21,11,65,1) 100%);
   margin: 0;
   width: 100vw;
-  height: 200vh;
-  overflow: hidden;
+  height: auto;
   color: white;
   font-family: sans-serif;
 }
@@ -89,7 +88,12 @@ input::placeholder {
 
 .right-container {
   width: 50%;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+
       
 }
 
@@ -162,45 +166,202 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  margin-bottom: 50px;
+  height: 100%;
+  width: 100%;
 
 }
 
 .animation img {
+  width: 200%;
+  height: 200%;
+
+}
+
+.switch {
   position: relative;
-  width: 240%;
-  height: 240%;
-  bottom: 140px;
-  right: 100px;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-right: 100px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 128, 0, 0.5);
+  border-radius: 50px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 100%;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Style for the label */
+.switch-label {
+  margin-left: 10px;
 }
 
 .hours {
-  border: 1px solid rgb(253, 0, 0);
   display: flex;
-  justify-content: center;
-  align-items: top;
   height: 20vh;
-  gap: 2rem;
+  overflow: auto;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
-.hours div {
-  border: 1px solid green;
+.hours .weather-temp-div-mini  {
   min-width: 130px;
   display: flex; 
   justify-content: center;
 }
 
-.hours h6 {
-  font-size: 1rem;
+.temp-div-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 0;
+  background-color: rgba(95, 95, 95, 0.3);
+  border-radius: 20px;
+}
+
+.temp-div-mini div {
+  display: flex;
   margin: 0;
-  margin-top: 20px;
+  padding: 0;
 }
 
-.switch {
-  position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+.time {
+  font-size: 1.2rem;
+  padding: 0;
+  margin: 20px;
+  margin-bottom: 20px;
+  height: 20px;
+  text-decoration: underline;
 }
 
+.weather-temp-mini {
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+  
+
+}
+
+.weather-temp-type-mini {
+  font-size: 1rem;
+  margin: 0 !important;
+  padding: 0;
+
+}
+
+.days {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  height: 300px;
+  width: 350px;
+  background-color: rgba(95, 95, 95, 0.3);
+}
+
+.date {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  width: 70%;
+  font-size: 30px;
+  margin: 0;
+  
+}
+
+.info-mini {
+  display: flex;
+  flex-direction: column;
+  border-left: 0.2rem solid rgba(255, 255, 255, 0.5);
+  padding-left: 1rem;
+}
+
+.info-mini p {
+  margin: 0.5rem;
+}
+
+.weather-temp-div-mini {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  
+}
+
+.temp-day-div-mini {
+  display: flex;
+  padding-right: 1rem;
+
+}
+
+.temp-day-div-mini h5 {
+  font-size: 6rem;
+
+}
+
+.mini-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  margin-top: 0;
+  width: 70%;
+}
+
+footer {
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 40px;
+}
