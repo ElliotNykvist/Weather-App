@@ -5,7 +5,7 @@ const btn = document.querySelector(".search-btn");
 
 async function getWeatherData() {
   const inputValue = input.value;
-  const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${myApi}&q=${inputValue}`, {mode: 'cors'});
+  const response = await fetch(`https://api.weatherapi.com/v1/forcast.json?key=${myApi}&q=${inputValue}`, {mode: 'cors'});
   const  weatherData = await response.json();
 
   const location = weatherData.location.name;
@@ -27,16 +27,12 @@ async function getWeatherData() {
   document.querySelector(".humidity").innerHTML = `Humidity: ${humidityData} %`;
   document.querySelector(".rain").innerHTML = `Rain: ${rainData} mm`;
 
-  switch (type) {
-    case "sun": 
-    
-    case "":
+  const imgCode = weatherData.current.condition.code;
 
-    case 2:
+  document.querySelector(".img").src = `./images/animated/${imgCode}.svg`;
 
-    case 3:
-  }
 
+  
 
  
   console.log(location);
