@@ -1,11 +1,12 @@
 const myApi = "984f37a3d7f842c6ad8131427233110";
 const input = document.getElementById("location-value");
 const btn = document.querySelector(".search-btn");
+const tempMini = document.querySelectorAll(".weather-temp-mini");
 
 
 async function getWeatherData() {
   const inputValue = input.value;
-  const response = await fetch(`https://api.weatherapi.com/v1/forcast.json?key=${myApi}&q=${inputValue}`, {mode: 'cors'});
+  const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${myApi}&q=${inputValue}`, {mode: 'cors'});
   const  weatherData = await response.json();
 
   const location = weatherData.location.name;
@@ -41,11 +42,30 @@ async function getWeatherData() {
   return weatherData;
 }
 
+async function getForcastData() {
+  const inputValue = input.value;
+  const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${myApi}&q=${inputValue}`, {mode: 'cors'});
+  const  forecastData = await response.json();
+
+  const foreCast = forecastData.forecast.forecastday[0].hour;
+
+  tempMini.forEach((element, index) => {
+    // eslint-disable-next-line no-param-reassign
+    element.innerHTML = foreCast[index].temp_c;});
+    
+
+
+
+  console.log(forecastData);
+
+}
+
 
 
 
 btn.addEventListener('click', () => {
   getWeatherData();
+  getForcastData()
 })
 
 
