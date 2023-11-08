@@ -6,7 +6,7 @@ const imgMini  = document.querySelectorAll(".img-mini");
 const imgMiniDay = document.querySelectorAll(".img-day");
 const infoMini = document.querySelectorAll(".info-mini");
 const titleDay = document.querySelectorAll(".date");
-const tempDay = document.querySelectorAll(".weather-temp-mini");
+const tempDay = document.querySelectorAll(".weather-temp-day");
 
 
 
@@ -85,6 +85,14 @@ async function getFutureData() {
     title.innerHTML = future[index].date;
       
   })
+
+ tempDay.forEach((temp, index) => {
+    const temperature = future[index].day.avgtemp_c;
+    // eslint-disable-next-line no-param-reassign
+    temp.innerHTML = temperature;
+  });
+
+
   
 
 

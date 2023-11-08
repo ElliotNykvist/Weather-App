@@ -238,10 +238,10 @@ input:checked + .slider:before {
 
 .hours {
   display: flex;
-  height: 20vh;
+  height: 100%;
   overflow: auto;
-  padding: 10px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .hours .weather-temp-div-mini  {
@@ -365,5 +365,11 @@ footer {
   justify-content: center;
   align-items: end;
   padding-bottom: 40px;
+}
+
+.weather-temp-day {
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
 }
 
