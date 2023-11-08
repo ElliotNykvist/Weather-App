@@ -5,7 +5,9 @@ const tempMini = document.querySelectorAll(".weather-temp-mini");
 const imgMini  = document.querySelectorAll(".img-mini");
 const imgMiniDay = document.querySelectorAll(".img-day");
 const infoMini = document.querySelectorAll(".info-mini");
-const titleDay = document.querySelectorAll(".mini-title");
+const titleDay = document.querySelectorAll(".date");
+const tempDay = document.querySelectorAll(".weather-temp-mini");
+
 
 
 async function getWeatherData() {
@@ -71,6 +73,18 @@ async function getFutureData() {
     rainElement.innerHTML = `Rain: ${rainData} mm`;
   
     })
+
+  imgMiniDay.forEach((img, index) => {
+    // eslint-disable-next-line no-param-reassign
+    img.src = future[index].day.condition.icon;
+  
+  });
+
+  titleDay.forEach((title, index) => {
+    // eslint-disable-next-line no-param-reassign
+    title.innerHTML = future[index].date;
+      
+  })
   
 
 
