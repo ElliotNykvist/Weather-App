@@ -2,6 +2,8 @@ const myApi = "984f37a3d7f842c6ad8131427233110";
 const input = document.getElementById("location-value");
 const btn = document.querySelector(".search-btn");
 const tempMini = document.querySelectorAll(".weather-temp-mini");
+const imgMini  = document.querySelectorAll(".img-mini");
+const imgMiniDay = document.querySelectorAll(".img-day");
 
 
 async function getWeatherData() {
@@ -35,12 +37,33 @@ async function getWeatherData() {
 
   
 
- 
+ /*
   console.log(location);
   console.log(weatherData);
+*/
 
   return weatherData;
 }
+
+
+async function getFutureData() {
+  const inputValue = input.value;
+  const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${myApi}&q=${inputValue}&days=3`, {mode: 'cors'});
+  const  futureData = await response.json();
+
+  const future = futureData.forecast.forcastday;
+
+  imgMiniDay.forEach((img, index) => {
+    // eslint-disable-next-line no-param-reassign
+    img.src = future[index].condition.icon;
+
+   });
+
+  
+
+  console.log(futureData);
+}
+
 
 async function getForcastData() {
   const inputValue = input.value;
@@ -49,23 +72,27 @@ async function getForcastData() {
 
   const foreCast = forecastData.forecast.forecastday[0].hour;
 
+  console.log(foreCast)
+
+  imgMini.forEach((img, index) => {
+    // eslint-disable-next-line no-param-reassign
+    img.src = foreCast[index].condition.icon
+   });
+
   tempMini.forEach((element, index) => {
     // eslint-disable-next-line no-param-reassign
     element.innerHTML = foreCast[index].temp_c;});
-    
-
-
-
-  console.log(forecastData);
 
 }
 
 
-
-
 btn.addEventListener('click', () => {
+  
   getWeatherData();
-  getForcastData()
+  getForcastData();
+  getFutureData();
+  input.value = "";
+
 })
 
 
