@@ -4,6 +4,8 @@ const btn = document.querySelector(".search-btn");
 const tempMini = document.querySelectorAll(".weather-temp-mini");
 const imgMini  = document.querySelectorAll(".img-mini");
 const imgMiniDay = document.querySelectorAll(".img-day");
+const infoMini = document.querySelectorAll(".info-mini");
+const titleDay = document.querySelectorAll(".mini-title");
 
 
 async function getWeatherData() {
@@ -21,7 +23,7 @@ async function getWeatherData() {
   // info
 
   const feelsLike = weatherData.current.feelslike_c;
-  const wind = weatherData.current.wind_kph;
+  const wind = Math.round(weatherData.current.wind_kph/3.6);
   const humidityData = weatherData.current.humidity;
   const rainData = weatherData.current.precip_mm;
 
@@ -49,19 +51,29 @@ async function getWeatherData() {
 async function getFutureData() {
   const inputValue = input.value;
   const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${myApi}&q=${inputValue}&days=3`, {mode: 'cors'});
-  const  futureData = await response.json();
+  const futureData = await response.json();
 
-  const future = futureData.forecast.forcastday;
+  const future = futureData.forecast.forecastday;
+  console.log(future);
 
-  imgMiniDay.forEach((img, index) => {
-    // eslint-disable-next-line no-param-reassign
-    img.src = future[index].condition.icon;
+  infoMini.forEach((info, index) => {
 
-   });
+    const wind = Math.round(future[index].day.avgvis_km/3.6);
+    const humidityData = future[index].day.avghumidity;
+    const rainData = future[index].day.totalprecip_mm;
 
+    const windElement = info.querySelector(".info-mini .wind-day");
+    const humidityElement = info.querySelector(".info-mini .humidity-day");
+    const rainElement = info.querySelector(".info-mini .rain-day");
+
+    windElement.innerHTML = `Wind: ${wind} m/s`;
+    humidityElement.innerHTML = `Humidity: ${humidityData} %`;
+    rainElement.innerHTML = `Rain: ${rainData} mm`;
+  
+    })
   
 
-  console.log(futureData);
+
 }
 
 
@@ -89,8 +101,8 @@ async function getForcastData() {
 btn.addEventListener('click', () => {
   
   getWeatherData();
-  getForcastData();
   getFutureData();
+  getForcastData()
   input.value = "";
 
 })
