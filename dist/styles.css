@@ -306,6 +306,10 @@ input:checked + .slider:before {
 
 }
 
+.days .weather-temp-type-mini {
+  font-size: 1.5rem;
+}
+
 .days {
   display: flex;
   gap: 40px;
