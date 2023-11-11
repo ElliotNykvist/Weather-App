@@ -851,7 +851,6 @@ body {
   flex-direction: column;
   border: none;
   padding: 0;
-  padding-top: 70px;
   width: 100%;
   height: auto;
   gap: 0;
@@ -973,6 +972,9 @@ body {
 
 }
 
+.title {
+  padding: 0;
+}
 
 
 .days {
