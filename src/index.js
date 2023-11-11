@@ -406,7 +406,7 @@ createDom();
   
 
 
-  async function getWeatherData(locationName) {
+  async function getWeatherData() {
     let weatherData;
     try {
       const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${myApi}&q=${locationName}`, {mode: 'cors'});
@@ -462,7 +462,7 @@ createDom();
 
 
 
-  async function getFutureData(locationName) {
+  async function getFutureData() {
 
     let futureData;
     try {
@@ -553,7 +553,7 @@ createDom();
   
   }
 
-  async function getForecastData(locationName) {
+  async function getForecastData() {
 
     let forecastData;
     try {
