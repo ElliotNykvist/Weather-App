@@ -1018,5 +1018,15 @@ footer {
   padding-top: 10vh;
 }
 
+.date {
+  font-size: 1.3rem;
+}
+
+
+.info-mini p {
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+
 }
 
